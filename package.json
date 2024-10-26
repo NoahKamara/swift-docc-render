@@ -6,6 +6,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build && node ./bin/transformIndex.js",
+    "build-ide": "export VUE_APP_TARGET=ide; npm run build; npm run copy-dist",
+    "copy-dist": "export DIST=../Sources/BundleAppSourceProvider/ArchiveResources/; rm -r $DIST*; cp -r dist/* $DIST",
     "test": "npm run test:unit && npm run lint && npm run test:license",
     "test:license": "./bin/check-source",
     "test:unit": "vue-cli-service test:unit",
